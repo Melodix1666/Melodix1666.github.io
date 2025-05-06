@@ -74,7 +74,7 @@
       margin-bottom: 15px;
     }
 
-    .heart {
+    .star {
       position: fixed;
       color: #ff69b4;
       font-size: 24px;
@@ -93,12 +93,12 @@
       }
     }
 
-    .heart:nth-child(odd) {
+    .star:nth-child(odd) {
       animation-duration: 4s;
       animation-delay: 0.5s;
     }
 
-    .heart:nth-child(even) {
+    .star:nth-child(even) {
       animation-duration: 5s;
       animation-delay: 1s;
     }
@@ -120,7 +120,7 @@
 </head>
 <body>
 
-  <h1>Press the Button a 100 times to show how much you love me! ❤️</h1>
+  <h1>Press the Button</h1>
 
   <button id="loveBtn">&#128151; Press Me!</button>
   <div id="counter">Pressed: 0 / 100</div>
@@ -128,19 +128,14 @@
 
   <!-- Hidden Love Letter Popup -->
   <div class="love-letter" id="loveLetter">
-    <h2> 💌 Read me! 💌 </h2>
+    <h2> Read me! </h2>
     <p>
-      Thank you for showing me how much you love me. I made this to say that I really, really love you and I appreciate all that you do for me.
-      I'm sorry if I've been on edge a lot and  doubting a lot of stuff but i trust you and what happens happens, I trust you&#128578;.
-      You mean so much to me and I'm so glad we're together. I hope we stay with each other for a very long time.
-      I don't know what I would do without you because I love you so so so much ❤️
-      I hope you liked this because it took me 4-5 days to make (crazy, right?), but it was so worth it. I'd do it again in a heartbeat.
-      You mean the world to me. I love you to the moon and back 💞
+      Thank you for playing along! here's a little song as well!
     </p>
   </div>
 
   <!-- Sounds -->
-  <audio id="loveSong" src="audio/2025-03-14 03-51-26.mp3" preload="auto"></audio>
+  <audio id="loveSong" src="audio/2025-05-02 00-59-37.mp4" preload="auto"></audio>
 
   <script>
     let count = 0;
@@ -157,12 +152,12 @@
         counter.textContent = `Pressed: ${count} / 100`;
 
         if (count % 10 === 0) {
-          createFloatingHeart();
+          createFloatingStars();
         }
       }
 
       if (count === 100) {
-        message.innerHTML = "WOW! You love me sooooooo much! 🥰";
+        message.innerHTML = "WOW!";
         button.disabled = true;
         button.style.opacity = 0.5;
 
@@ -174,23 +169,23 @@
         // Play love song
         loveSong.play();
 
-        // Extra floating hearts
+        // Extra floating stars
         for (let i = 0; i < 20; i++) {
-          setTimeout(createFloatingHeart, i * 200);
+          setTimeout(createFloatingStars, i * 200);
         }
       }
     });
 
-    function createFloatingHeart() {
+    function createFloatingStars() {
       const heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.innerHTML = "💗";
+      heart.classList.add("Star");
+      heart.innerHTML = "⭐";
       heart.style.left = Math.random() * 100 + "vw";
       heart.style.fontSize = Math.random() * 20 + 20 + "px";
       document.body.appendChild(heart);
 
       setTimeout(() => {
-        heart.remove();
+        star.remove();
       }, 4000);
     }
   </script>
